@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
+use Auth;
 
 use Closure;
 
@@ -14,10 +15,20 @@ class Authenticate
      */
     public function handle($request, Closure $next)
     {
-        if (!is_null(request()->user())) {
+        // if (!is_null(request()->user())) {
+        //     return $next($request);
+        // } else {
+        //     return redirect('login');
+        // }
+
+
+        if (Auth::check()) {
             return $next($request);
-        } else {
-            return redirect('login');
+
         }
+        else {
+                return redirect('admin/login');
+            }
+
     }
 }

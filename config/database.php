@@ -66,7 +66,7 @@ return [
         ],
 
         //for sparkify admins
-        'mysql2' => [
+        'sparkify_admin_db' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST_SECOND', '127.0.0.1'),

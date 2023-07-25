@@ -10,7 +10,8 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, SoftDeletes;
+    use HasFactory, Notifiable;
+    public $connection = 'sparkify_admin_db';
 
     /**
      * The attributes that are mass assignable.

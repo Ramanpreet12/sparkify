@@ -13,17 +13,15 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::connection('sparkify_admin_db')->create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('mobile');
             $table->string('photo')->nullable();
-            $table->string('gender');
-            $table->integer('active');
-            $table->softDeletes();
-            $table->rememberToken();
+            $table->string('type');
+            $table->enum('status' , ['active' , 'inactive']);
             $table->timestamps();
         });
     }

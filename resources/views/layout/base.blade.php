@@ -23,7 +23,15 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <!-- BEGIN: CSS Assets-->
     <link rel="stylesheet" href="{{ mix('dist/css/app.css') }}" />
+      <!-- custom CSS Assets-->
+    <link rel="stylesheet" href="{{asset('dist/css/custom.css')}}">
+
+    <!-- Data Tables -->
+    <link rel="stylesheet" href="{{asset('dist/css/jquery.dataTables.min.css')}}">
     <!-- END: CSS Assets-->
+
+
+
 </head>
 <!-- END: Head -->
 

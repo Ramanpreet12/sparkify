@@ -6,6 +6,11 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\DarkModeController;
 use App\Http\Controllers\ColorSchemeController;
 
+
+use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\OccupationController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,18 +25,32 @@ use App\Http\Controllers\ColorSchemeController;
 Route::get('dark-mode-switcher', [DarkModeController::class, 'switch'])->name('dark-mode-switcher');
 Route::get('color-scheme-switcher/{color_scheme}', [ColorSchemeController::class, 'switch'])->name('color-scheme-switcher');
 
-Route::middleware('loggedin')->group(function() {
-    Route::get('login', [AuthController::class, 'loginView'])->name('login.index');
-    Route::post('login', [AuthController::class, 'login'])->name('login.check');
-    Route::get('register', [AuthController::class, 'registerView'])->name('register.index');
-    Route::post('register', [AuthController::class, 'register'])->name('register.store');
-});
+// Route::middleware('loggedin')->group(function() {
+//     Route::get('login', [AuthController::class, 'loginView'])->name('login.index');
+//     Route::post('login', [AuthController::class, 'login'])->name('login.user');
+//     Route::get('register', [AuthController::class, 'registerView'])->name('register.index');
+//     Route::post('register', [AuthController::class, 'register'])->name('register.store');
+// });
 
-Route::middleware('auth')->group(function() {
-    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/', [PageController::class, 'dashboardOverview1'])->name('dashboard-overview-1');
-    Route::get('dashboard-overview-2-page', [PageController::class, 'dashboardOverview2'])->name('dashboard-overview-2');
-    Route::get('dashboard-overview-3-page', [PageController::class, 'dashboardOverview3'])->name('dashboard-overview-3');
+   Route::match(['get', 'post'] , 'admin/login' , [AuthController::class, 'login'])->name('admin/login');
+
+
+Route::prefix('admin')->middleware('auth')->group(function() {
+    Route::get('logout', [AuthController::class, 'logout'])->name('admin/logout');
+    Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('admin/dashboard');
+
+    //CRUD for Occupation
+    Route::resource('occupation', OccupationController::class);
+
+
+
+
+
+
+
+
+    // Route::get('dashboard-overview-2-page', [PageController::class, 'dashboardOverview2'])->name('dashboard-overview-2');
+    // Route::get('dashboard-overview-3-page', [PageController::class, 'dashboardOverview3'])->name('dashboard-overview-3');
     Route::get('inbox-page', [PageController::class, 'inbox'])->name('inbox');
     Route::get('file-manager-page', [PageController::class, 'fileManager'])->name('file-manager');
     Route::get('point-of-sale-page', [PageController::class, 'pointOfSale'])->name('point-of-sale');

@@ -16,63 +16,82 @@ class SideMenu
             'dashboard' => [
                 'icon' => 'home',
                 'title' => 'Dashboard',
-                'sub_menu' => [
-                    'dashboard-overview-1' => [
-                        'icon' => '',
-                        'route_name' => 'dashboard-overview-1',
-                        'params' => [
-                            'layout' => 'side-menu',
-                        ],
-                        'title' => 'Overview 1'
-                    ],
-                    'dashboard-overview-2' => [
-                        'icon' => '',
-                        'route_name' => 'dashboard-overview-2',
-                        'params' => [
-                            'layout' => 'side-menu',
-                        ],
-                        'title' => 'Overview 2'
-                    ],
-                    'dashboard-overview-3' => [
-                        'icon' => '',
-                        'route_name' => 'dashboard-overview-3',
-                        'params' => [
-                            'layout' => 'side-menu',
-                        ],
-                        'title' => 'Overview 3'
-                    ]
-                ]
+                'route_name' => 'admin/dashboard',
+                'params' => [
+
+                            ],
+                // 'sub_menu' => [
+                //     'dashboard-overview-1' => [
+                //         'icon' => '',
+                //         'route_name' => 'admin/dashboard',
+                //         'params' => [
+                //             'layout' => 'side-menu',
+                //         ],
+                //         'title' => 'Overview 1'
+                //     ],
+                    // 'dashboard-overview-2' => [
+                    //     'icon' => '',
+                    //     'route_name' => 'dashboard-overview-2',
+                    //     'params' => [
+                    //         'layout' => 'side-menu',
+                    //     ],
+                    //     'title' => 'Overview 2'
+                    // ],
+                    // 'dashboard-overview-3' => [
+                    //     'icon' => '',
+                    //     'route_name' => 'dashboard-overview-3',
+                    //     'params' => [
+                    //         'layout' => 'side-menu',
+                    //     ],
+                    //     'title' => 'Overview 3'
+                    // ]
+                // ]
             ],
-            'menu-layout' => [
-                'icon' => 'box',
-                'title' => 'Menu Layout',
-                'sub_menu' => [
-                    'side-menu' => [
-                        'icon' => '',
-                        'route_name' => 'dashboard-overview-1',
-                        'params' => [
-                            'layout' => 'side-menu'
-                        ],
-                        'title' => 'Side Menu'
-                    ],
-                    'simple-menu' => [
-                        'icon' => '',
-                        'route_name' => 'dashboard-overview-1',
-                        'params' => [
-                            'layout' => 'simple-menu'
-                        ],
-                        'title' => 'Simple Menu'
-                    ],
-                    'top-menu' => [
-                        'icon' => '',
-                        'route_name' => 'dashboard-overview-1',
-                        'params' => [
-                            'layout' => 'top-menu'
-                        ],
-                        'title' => 'Top Menu'
-                    ]
-                ]
+            //dropdown
+            // 'menu-layout' => [
+            //     'icon' => 'box',
+            //     'title' => 'Menu Layout',
+            //     'sub_menu' => [
+            //         'side-menu' => [
+            //             'icon' => '',
+            //             'route_name' => 'admin/dashboard',
+            //             'params' => [
+            //                 'layout' => 'side-menu'
+            //             ],
+            //             'title' => 'Side Menu'
+            //         ],
+            //         'simple-menu' => [
+            //             'icon' => '',
+            //             'route_name' => 'admin/dashboard',
+            //             'params' => [
+            //                 'layout' => 'simple-menu'
+            //             ],
+            //             'title' => 'Simple Menu'
+            //         ],
+            //         'top-menu' => [
+            //             'icon' => '',
+            //             'route_name' => 'admin/dashboard',
+            //             'params' => [
+            //                 'layout' => 'top-menu'
+            //             ],
+            //             'title' => 'Top Menu'
+            //         ]
+            //     ]
+            // ],
+
+            //occupation
+            'occupation' => [
+                'icon' => 'inbox',
+                'route_name' => 'occupation.index',
+                'params' => [
+
+                ],
+                'title' => 'Occupation'
             ],
+
+
+
+
             'inbox' => [
                 'icon' => 'inbox',
                 'route_name' => 'inbox',
