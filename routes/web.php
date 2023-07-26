@@ -9,7 +9,6 @@ use App\Http\Controllers\ColorSchemeController;
 
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\AdminSettingController;
-use App\Http\Controllers\Backend\OccupationController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubcategoryController;
 
@@ -36,10 +35,7 @@ Route::get('color-scheme-switcher/{color_scheme}', [ColorSchemeController::class
         //admin settings
         Route::match(['get' , 'post'] , 'profile', [AdminSettingController::class, 'profile'])->name('admin/profile');
         Route::get('password', [AdminSettingController::class, 'password'])->name('admin/password');
-
-
-        //CRUD for Occupation
-        Route::resource('occupation', OccupationController::class);
+        Route::post('update_password', [AdminSettingController::class, 'updatePassword'])->name('admin/update_password');
 
         //CRUD for category
         Route::resource('category', CategoryController::class);

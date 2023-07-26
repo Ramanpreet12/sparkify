@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Models\Subcategory;
+
 
 class DashboardController extends Controller
 {
@@ -14,7 +17,10 @@ class DashboardController extends Controller
      */
     public function dashboard()
     {
-        return view('backend.dashboard');
+
+        $categories_count = Category::get()->count();
+        $subcategories_count = Subcategory::get()->count();
+        return view('backend.dashboard' , compact('categories_count' , 'subcategories_count'));
     }
 
     public function index()

@@ -1,7 +1,7 @@
 @extends('../layout/' . $layout)
 
 @section('head')
-    <title>Login - Rubick - Tailwind HTML Admin Template</title>
+    <title>Login - Sparkify</title>
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
                 <a href="" class="-intro-x flex items-center pt-5">
                     <img alt="Rubick Tailwind HTML Admin Template" class="w-6" src="{{ asset('dist/images/logo.svg') }}">
                     <span class="text-white text-lg ml-3">
-                        Rubick
+                        Sparkify
                     </span>
                 </a>
                 <div class="my-auto">
@@ -34,11 +34,21 @@
                         account. Manage all your e-commerce accounts in one place</div>
                     <div class="intro-x mt-8">
                        @if (Session::has('success_msg'))
-                           <p class="text-success">{{Session::get('success_msg')}}</p>
+                       <div class="alert alert-danger-soft show flex items-center mb-2 alert_messages" role="alert">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-octagon w-6 h-6 mr-2"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                           {{Session::get('success_msg')}}
+                       </div>
                        @endif
+
                        @if (Session::has('error_msg'))
-                       <p class="text-danger">{{Session::get('error_msg')}}</p>
-                   @endif
+                       <div class="alert alert-danger-soft show flex items-center mb-2 alert_messages" role="alert">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-octagon w-6 h-6 mr-2"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                           {{Session::get('error_msg')}}
+                       </div>
+                       @endif
+
+
+
                         {{-- <form id="login-form">
                             <input id="email" type="text" class="intro-x login__input form-control py-3 px-4 block" placeholder="Email" value="midone@left4code.com">
                             <div id="error-email" class="login__input-error text-danger mt-2"></div>
@@ -52,30 +62,29 @@
                             <input id="" type="text" class="intro-x login__input form-control py-3 px-4 block"
                                 placeholder="Email" value="" name="email">
                             <div id="error-email" class="login__input-error text-danger mt-2"></div>
-                            <input id="" type="text"
+                            <input id="" type="password"
                                 class="intro-x login__input form-control py-3 px-4 block mt-4" placeholder="Password"
                                 value="" name="password">
                             <div id="error-password" class="login__input-error text-danger mt-2"></div>
 
                     </div>
-                    <div class="intro-x flex text-slate-600 dark:text-slate-500 text-xs sm:text-sm mt-4">
+                    {{-- <div class="intro-x flex text-slate-600 dark:text-slate-500 text-xs sm:text-sm mt-4">
                         <div class="flex items-center mr-auto">
                             <input id="remember-me" type="checkbox" class="form-check-input border mr-2">
                             <label class="cursor-pointer select-none" for="remember-me">Remember me</label>
                         </div>
                         <a href="">Forgot Password?</a>
-                    </div>
+                    </div> --}}
                     <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left">
 
                         <button type="submit"
                             class="btn btn-primary py-3 px-4 w-full xl:w-32 xl:mr-3 align-top">Login</button>
-                        <button
-                            class="btn btn-outline-secondary py-3 px-4 w-full xl:w-32 mt-3 xl:mt-0 align-top">Register</button>
+                        {{-- <button class="btn btn-outline-secondary py-3 px-4 w-full xl:w-32 mt-3 xl:mt-0 align-top">Register</button> --}}
                     </div>
-                    <div class="intro-x mt-10 xl:mt-24 text-slate-600 dark:text-slate-500 text-center xl:text-left">
+                    {{-- <div class="intro-x mt-10 xl:mt-24 text-slate-600 dark:text-slate-500 text-center xl:text-left">
                         By signin up, you agree to our <a class="text-primary dark:text-slate-200" href="">Terms and
                             Conditions</a> & <a class="text-primary dark:text-slate-200" href="">Privacy Policy</a>
-                    </div>
+                    </div> --}}
                 </form>
                 </div>
             </div>

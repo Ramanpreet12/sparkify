@@ -46,11 +46,11 @@
                     </div>
                 </div>
                 <div class="p-5 border-t border-slate-200/60 dark:border-darkmode-400">
-                    <a class="flex items-center text-primary font-medium" href="{{ route('admin/profile') }}">
+                    <a class="flex items-center" href="{{ route('admin/profile') }}">
                         <i data-feather="activity" class="w-4 h-4 mr-2"></i> Personal Information
                     </a>
 
-                    <a class="flex items-center mt-5" href="">
+                    <a class="flex items-center text-primary font-medium mt-5" href="">
                         <i data-feather="lock" class="w-4 h-4 mr-2"></i> Change Password
                     </a>
 
@@ -65,7 +65,7 @@
                 <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
                     <h2 class="font-medium text-base mr-auto">Change Password</h2>
                 </div>
-                <form action="" method="POST" id="admin_password_form">
+                <form action="{{ route('admin/update_password') }}" method="POST" id="admin_password_form">
                     @csrf
                     <div class="p-5">
                         <div>

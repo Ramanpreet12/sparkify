@@ -1,7 +1,9 @@
 @extends('../layout/' . $layout)
 
 @section('subhead')
-    <title>Dashboard - Rubick - Tailwind HTML Admin Template</title>
+    <title>
+        Sparkify | Dashboard
+    </title>
 @endsection
 
 @section('subcontent')
@@ -10,6 +12,19 @@
             <div class="grid grid-cols-12 gap-6">
                 <!-- BEGIN: General Report -->
                 <div class="col-span-12 mt-8">
+                    @if (session()->has('success_msg'))
+                        <div class="alert alert-success show flex items-center mb-2 alert_messages" role="alert">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-check2-circle" viewBox="0 0 16 16">
+                                <path
+                                    d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
+                                <path
+                                    d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
+                            </svg>
+                            &nbsp; {{ session()->get('success_msg') }}
+                        </div>
+                    @endif
+
                     <div class="intro-y flex items-center h-10">
                         <h2 class="text-lg font-medium truncate mr-5">General Report</h2>
                         <a href="" class="ml-auto flex items-center text-primary">
@@ -17,7 +32,36 @@
                         </a>
                     </div>
                     <div class="grid grid-cols-12 gap-6 mt-5">
+
                         <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+                            <div class="report-box zoom-in">
+                                <div class="box p-5">
+                                    <div class="flex">
+                                        <div class="text-base text-slate-500 mt-1">Total Categories </div>
+                                        <div class="ml-auto">
+                                            <i data-feather="edit" class="report-box__icon text-pending"></i>
+                                        </div>
+                                    </div>
+                                    <div class="text-3xl font-medium leading-8 mt-6 mb-6">{{ $categories_count }}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+                            <div class="report-box zoom-in">
+                                <div class="box p-5">
+                                    <div class="flex">
+                                        <div class="text-base text-slate-500 mt-1">Total Subcategories </div>
+                                        <div class="ml-auto">
+                                            <i data-feather="list" class="report-box__icon text-success"></i>
+                                        </div>
+                                    </div>
+                                    <div class="text-3xl font-medium leading-8 mt-6 mb-6">{{ $subcategories_count }}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex">
@@ -32,8 +76,10 @@
                                     <div class="text-base text-slate-500 mt-1">Item Sales</div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+                        </div> --}}
+
+
+                        {{-- <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex">
@@ -80,12 +126,12 @@
                                     <div class="text-base text-slate-500 mt-1">Unique Visitor</div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <!-- END: General Report -->
                 <!-- BEGIN: Sales Report -->
-                <div class="col-span-12 lg:col-span-6 mt-8">
+                {{-- <div class="col-span-12 lg:col-span-6 mt-8">
                     <div class="intro-y block sm:flex items-center h-10">
                         <h2 class="text-lg font-medium truncate mr-5">Sales Report</h2>
                         <div class="sm:ml-auto mt-3 sm:mt-0 relative text-slate-500">
@@ -388,11 +434,11 @@
                             <option>50</option>
                         </select>
                     </div>
-                </div>
+                </div> --}}
                 <!-- END: Weekly Top Products -->
             </div>
         </div>
-        <div class="col-span-12 2xl:col-span-3">
+        {{-- <div class="col-span-12 2xl:col-span-3">
             <div class="2xl:border-l -mb-10 pb-10">
                 <div class="2xl:pl-6 grid grid-cols-12 gap-6">
                     <!-- BEGIN: Transactions -->
@@ -636,6 +682,6 @@
                     <!-- END: Schedules -->
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 @endsection

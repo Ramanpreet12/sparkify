@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\User;
+use Hash;
+use Auth;
+use Illuminate\Support\Facades\Validator;
 
 class AdminSettingController extends Controller
 {
@@ -24,6 +27,37 @@ class AdminSettingController extends Controller
 
         return view('backend.admin_setting.admin_password');
     }
+
+    public function updatePassword(Request $request)
+    {
+
+        $validate = Validator::make($request->all(),[
+            'current_password' => 'required',
+            'new_password' => 'required',
+            'confirm_password' => 'required',
+        ] ,
+        [
+            'current_password.required' => 'Current Password is required',
+            'new_password.required' => 'New Password is  required',
+            'confirm_password.required' => 'Confirm Password is  required',
+        ]);
+        if ($validate->fails()) {
+            return back()->withErrors($validate->errors())->withInput();
+        } else {
+
+            $input = $request->all();
+            if (!(Hash::check($request->current_password ,Auth::user()->password))) {
+                return redirect()->back()->with('message_error' , 'Current password is incorrect');
+            }
+            if (($request->current_password === $request->new_password)) {
+               return redirect()->back()->with('message_error' , 'New Password cannot be same as your current password');
+            }
+            User::where('id' , Auth::user()->id)->update(['password' => bcrypt($request->new_password)]);
+            return redirect()->back()->with('success' , 'Password updated successfully');
+        }
+
+    }
+
 
     /**
      * Display a listing of the resource.

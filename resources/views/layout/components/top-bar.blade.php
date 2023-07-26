@@ -9,7 +9,7 @@
     </nav>
     <!-- END: Breadcrumb -->
     <!-- BEGIN: Search -->
-    <div class="intro-x relative mr-3 sm:mr-6">
+    {{-- <div class="intro-x relative mr-3 sm:mr-6">
         <div class="search hidden sm:block">
             <input type="text" class="search__input form-control border-transparent" placeholder="Search...">
             <i data-feather="search" class="search__icon dark:text-slate-500"></i>
@@ -64,10 +64,10 @@
                 @endforeach
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- END: Search -->
     <!-- BEGIN: Notifications -->
-    <div class="intro-x dropdown mr-auto sm:mr-6">
+    {{-- <div class="intro-x dropdown mr-auto sm:mr-6">
         <div class="dropdown-toggle notification notification--bullet cursor-pointer" role="button" aria-expanded="false" data-tw-toggle="dropdown">
             <i data-feather="bell" class="notification__icon dark:text-slate-500"></i>
         </div>
@@ -91,12 +91,21 @@
                 @endforeach
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- END: Notifications -->
     <!-- BEGIN: Account Menu -->
     <div class="intro-x dropdown w-8 h-8">
         <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in" role="button" aria-expanded="false" data-tw-toggle="dropdown">
-            <img alt="Rubick Tailwind HTML Admin Template" src="{{ asset('dist/images/' . $fakers[9]['photos'][0]) }}">
+            @if (!empty(Auth::user()->photo))
+            <img alt="Admin Image" class="rounded-full"
+            src="{{asset('storage/admin_profile_photo/'. Auth::user()->photo) }}">
+            @else
+
+            <img alt="Admin Image" class="rounded-full"
+            src="{{asset('dist/images/dummy_image.webp')}}">
+            @endif
+
+            {{-- <img alt="Rubick Tailwind HTML Admin Template" src="{{ asset('dist/images/' . $fakers[9]['photos'][0]) }}"> --}}
         </div>
         <div class="dropdown-menu w-56">
             <ul class="dropdown-content bg-primary text-white">
@@ -110,21 +119,21 @@
                         <i data-feather="user" class="w-4 h-4 mr-2"></i> Profile
                     </a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="" class="dropdown-item hover:bg-white/5">
                         <i data-feather="edit" class="w-4 h-4 mr-2"></i> Add Account
                     </a>
-                </li>
+                </li> --}}
                 <li>
-                    <a href="" class="dropdown-item hover:bg-white/5">
+                    <a href="{{route('admin/password')}}" class="dropdown-item hover:bg-white/5">
                         <i data-feather="lock" class="w-4 h-4 mr-2"></i> Reset Password
                     </a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="" class="dropdown-item hover:bg-white/5">
                         <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> Help
                     </a>
-                </li>
+                </li> --}}
                 <li><hr class="dropdown-divider border-white/[0.08]"></li>
                 <li>
                     <a href="{{ route('admin/logout') }}" class="dropdown-item hover:bg-white/5">
