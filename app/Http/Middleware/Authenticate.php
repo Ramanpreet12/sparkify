@@ -24,10 +24,9 @@ class Authenticate
 
         if (Auth::check()) {
             return $next($request);
-
         }
         else {
-                return redirect('admin/login');
+            return redirect()->route('admin/login');
             }
 
     }

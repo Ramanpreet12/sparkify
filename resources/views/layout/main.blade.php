@@ -22,6 +22,9 @@
         <!-- BEGIN: Sweet alert -->
         <script src="{{asset('dist/js/sweetalert.min.js')}}"></script>
 
+        <!-- BEGIN: Custom js -->
+        <script src="{{asset('dist/js/custom.js')}}"></script>
+
         {{-- @yield('script') --}}
         @stack('script')
     </body>
